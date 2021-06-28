@@ -26,9 +26,9 @@ public class MyDeployingVerticleTest extends AbstractVerticle {
 
   @Test
   public void startTest(TestContext testContext) {
-    try {
-      Async async = testContext.async();
+    Async async = testContext.async();
 
+    try {
       vertx.registerVerticleFactory(new ServiceVerticleFactory());
       vertx.registerVerticleFactory(new MavenVerticleFactory());
 
@@ -38,6 +38,8 @@ public class MyDeployingVerticleTest extends AbstractVerticle {
         });
     } catch (Exception e) {
       testContext.fail(e);
+      async.complete();
+
     }
   }
 }
