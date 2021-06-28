@@ -33,7 +33,11 @@ public class MyDeployingVerticleTest extends AbstractVerticle {
       vertx.registerVerticleFactory(new MavenVerticleFactory());
 
       vertx.deployVerticle(new MyDeployingVerticle(), handler -> {
+
           testContext.assertTrue(handler.succeeded());
+          if (handler.failed()) {
+            testContext.fail(handler.cause());
+          }
           async.complete();
         });
     } catch (Exception e) {

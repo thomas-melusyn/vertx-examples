@@ -58,20 +58,4 @@ public class MyDeployingVerticle extends AbstractVerticle {
     return promise;
   }
 
-  public Promise<String> deployThree() {
-    Promise<String> promise = Promise.promise();
-
-    vertx.deployVerticle("maven:io.vertx:maven-service-factory-verticle:3.9.0::my-second-verticle",
-      ar -> {
-        if (ar.succeeded()) {
-          promise.complete(ar.result());
-        } else {
-          promise.fail(ar.cause());
-        }
-      }
-    );
-
-    return promise;
-  }
-
 }

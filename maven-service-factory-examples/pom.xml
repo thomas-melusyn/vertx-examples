@@ -17,19 +17,7 @@
   </modules>
 
   <properties>
-    <vertx.version>4.0.3</vertx.version>
+    <vertx.version>3.9.5</vertx.version>
   </properties>
 
-
-  <profiles>
-    <profile>
-      <id>staging</id>
-      <repositories>
-        <repository>
-          <id>staging</id>
-          <url>https://oss.sonatype.org/content/repositories/iovertx-3868/</url>
-        </repository>
-      </repositories>
-    </profile>
-  </profiles>
 </project>
